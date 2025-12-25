@@ -20,7 +20,8 @@ extension PhotoFeedEntity {
             author: author,
             thumbnailURL: thumbnailURLFactory.makeThumbnailURL(for: id, size: CGSize(width: 150, height: 150)),
             downloadURL: downloadURL,
-            displaySize: CGSize(width: 150, height: 150)
+            width: width,
+            height: height
         )
     }
 }

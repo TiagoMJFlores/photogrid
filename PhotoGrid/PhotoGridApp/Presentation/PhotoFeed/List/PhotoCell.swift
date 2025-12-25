@@ -20,9 +20,7 @@ struct PhotoCell: View {
                 ProgressView()
             }
             .resizable()
-            .scaledToFill()
-            .frame(width: photo.displaySize.width, height: photo.displaySize.height)
-            .clipped()
+            .scaledToFit()
             .cornerRadius(10)
             .overlay(
                 RoundedRectangle(cornerRadius: 10)

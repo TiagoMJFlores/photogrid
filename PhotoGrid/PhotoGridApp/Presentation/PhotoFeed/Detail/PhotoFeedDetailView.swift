@@ -7,6 +7,7 @@
 
 
 import SwiftUI
+import Kingfisher
 
 struct PhotoFeedDetailView: View {
     
@@ -14,20 +15,53 @@ struct PhotoFeedDetailView: View {
     
     var body: some View {
         ScrollView {
-            VStack(spacing: 16) {
-                AsyncImage(url: URL(string: photo.thumbnailURL)) { image in
-                    image
-                        .resizable()
-                        .scaledToFit()
-                } placeholder: {
-                    ProgressView()
-                }
+            VStack(alignment: .leading, spacing: 24) {
+                KFImage(URL(string: photo.thumbnailURL))
+                    .resizable()
+                    .scaledToFit()
+                    .frame(maxWidth: .infinity)
                 
-                Text("Autor: \(photo.author)")
-                    .font(.headline)
+                VStack(alignment: .leading, spacing: 12) {
+                    HStack {
+                        Text("Author:")
+                            .font(.body)
+                            .fontWeight(.semibold)
+                        Text(photo.author)
+                            .font(.body)
+                    }
+                    
+                    HStack {
+                        Text("ID:")
+                            .font(.body)
+                            .fontWeight(.semibold)
+                        Text(photo.id)
+                            .font(.body)
+                    }
+                    
+                    HStack(alignment: .top) {
+                        Text("Size:")
+                            .font(.body)
+                            .fontWeight(.semibold)
+                        Text("\(photo.width)X\(photo.height)")
+                            .font(.body)
+                    }
+                    
+                    HStack(alignment: .top) {
+                        Text("URL:")
+                            .font(.body)
+                            .fontWeight(.semibold)
+                        Text(photo.author)
+                            .font(.body)
+                            .foregroundColor(.secondary)
+                    }
+                }
+                .padding(.horizontal, 20)
+                
+                Spacer()
             }
-            .padding()
+            .padding(.top, 0)
         }
-        .navigationTitle("Detalhe")
+        .navigationTitle("Photo Detail")
+        .navigationBarTitleDisplayMode(.large)
     }
 }
