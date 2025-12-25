@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Resolver
 
 protocol PhotoRepositoryProtocol {
     func fetchPhotos() async throws -> [PhotoFeedEntity]
@@ -13,13 +14,10 @@ protocol PhotoRepositoryProtocol {
 
 final class PhotoRepository: PhotoRepositoryProtocol {
  
-    private let service: PhotoService
+    @Injected private var service: PhotoServiceProtocol
+   
     private var cache: [PhotoFeedEntity]? = nil
-    
-    init(service: PhotoService) {
-        self.service = service
-    }
-    
+   
     func fetchPhotos() async throws -> [PhotoFeedEntity] {
         if let cached = cache {
             return cached

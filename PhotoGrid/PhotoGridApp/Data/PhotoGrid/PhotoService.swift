@@ -6,7 +6,12 @@
 //
 
 import Foundation
-struct PhotoService {
+
+protocol PhotoServiceProtocol {
+    func fetchPhotos() async throws -> [PhotoFeedEntity]
+}
+
+struct PhotoService: PhotoServiceProtocol {
     
     func fetchPhotos() async throws -> [PhotoFeedEntity] {
         let urlString = "https://picsum.photos/v2/list?page=1&limit=30"

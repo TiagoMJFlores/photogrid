@@ -6,14 +6,15 @@
 //
 
 import Foundation
-
+import Resolver
 
 protocol FetchPhotosUseCaseProtocol {
     func execute() async throws -> [PhotoFeedEntity]
 }
 
 struct FetchPhotosUseCase: FetchPhotosUseCaseProtocol {
-    let repository: PhotoRepositoryProtocol
+    
+    @Injected var repository: PhotoRepositoryProtocol
     
     func execute() async throws -> [PhotoFeedEntity] {
         try await repository.fetchPhotos().sorted { item1, item2 in

@@ -6,9 +6,8 @@
 //
 
 import Foundation
+import Resolver
 
-
-@MainActor
 final class PhotoFeedViewModel: ObservableObject {
     
     @Published var photos: [PhotoViewData] = []
@@ -17,12 +16,9 @@ final class PhotoFeedViewModel: ObservableObject {
     @Published var errorMessage: String? = nil
     
     private let thumbnailBaseURL = "https://picsum.photos/id/"
-    private let photoInteractorGrid: PhotoFeedInteractor
+    @Injected private var photoInteractorGrid: PhotoFeedInteractorProtocol
     
-    init(photoInteractorGrid: PhotoFeedInteractor) {
-        self.photoInteractorGrid = photoInteractorGrid
-    }
-    
+    @MainActor
     func loadPhotos() async {
         isLoading = true
         errorMessage = nil

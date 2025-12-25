@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		05DEAB092EFDB873008D0EE8 /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = 05DEAB082EFDB873008D0EE8 /* Resolver */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		058A9CC22EFC4DB700841C95 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -65,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05DEAB092EFDB873008D0EE8 /* Resolver in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +96,7 @@
 				058A9CAD2EFC4DB600841C95 /* PhotoGridApp */,
 				058A9CC42EFC4DB700841C95 /* PhotoGridTests */,
 				058A9CCE2EFC4DB700841C95 /* PhotoGridUITests */,
+				05DEAB072EFDB873008D0EE8 /* Frameworks */,
 				058A9CAC2EFC4DB600841C95 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -103,6 +109,13 @@
 				058A9CCB2EFC4DB700841C95 /* PhotoGridUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		05DEAB072EFDB873008D0EE8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +138,7 @@
 			);
 			name = PhotoGrid;
 			packageProductDependencies = (
+				05DEAB082EFDB873008D0EE8 /* Resolver */,
 			);
 			productName = PhotoGrid;
 			productReference = 058A9CAB2EFC4DB600841C95 /* PhotoGrid.app */;
@@ -297,7 +311,6 @@
 				INFOPLIST_FILE = PhotoGridApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -326,7 +339,6 @@
 				INFOPLIST_FILE = PhotoGridApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -585,6 +597,14 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		05DEAB082EFDB873008D0EE8 /* Resolver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 058A9DAF2EFC5BF600841C95 /* XCRemoteSwiftPackageReference "Resolver" */;
+			productName = Resolver;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 058A9CA32EFC4DB600841C95 /* Project object */;
 }
