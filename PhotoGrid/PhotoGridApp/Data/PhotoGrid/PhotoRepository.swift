@@ -9,22 +9,15 @@ import Foundation
 import Resolver
 
 protocol PhotoRepositoryProtocol {
-    func fetchPhotos() async throws -> [PhotoFeedEntity]
+    func fetchPhotos(page: Int, limit: Int) async throws -> [PhotoFeedEntity]
 }
 
 final class PhotoRepository: PhotoRepositoryProtocol {
  
     @Injected private var service: PhotoServiceProtocol
    
-    private var cache: [PhotoFeedEntity]? = nil
-   
-    func fetchPhotos() async throws -> [PhotoFeedEntity] {
-        if let cached = cache {
-            return cached
-        }
-        
-        let photos = try await service.fetchPhotos()
-        cache = photos
+    func fetchPhotos(page: Int, limit: Int) async throws -> [PhotoFeedEntity] {
+        let photos = try await service.fetchPhotos(page: page, limit: limit)
         return photos
     }
 }

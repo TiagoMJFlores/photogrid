@@ -15,20 +15,24 @@ struct PhotoFeedGrid: View {
     ]
     
     @ObservedObject var viewModel: PhotoFeedViewModel
-  
+    var onPhotoAppear: ((PhotoViewData) -> Void)? = nil
+    
     var body: some View {
         ScrollView {
-                                LazyVGrid(columns: gridItems, spacing: 12) {
-                                    ForEach(viewModel.photos) { photo in
-                                        NavigationLink(value: photo) {
-                                            PhotoCell(photo: photo,
-                                                      isSelected: viewModel.selectedPhoto == photo)
-                                        }
-                                    }
-                                }
-                                .padding()
-                            }
-
+            LazyVGrid(columns: gridItems, spacing: 12) {
+                ForEach(viewModel.photos) { photo in
+                    NavigationLink(value: photo) {
+                        PhotoCell(photo: photo,
+                                  isSelected: viewModel.selectedPhoto == photo)
+                        .onAppear {
+                            onPhotoAppear?(photo)
+                        }
+                    }
+                }
+            }
+            .padding()
+        }
+        
     }
 }
 

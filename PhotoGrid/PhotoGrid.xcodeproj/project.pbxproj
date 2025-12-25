@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		05DEAB092EFDB873008D0EE8 /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = 05DEAB082EFDB873008D0EE8 /* Resolver */; };
+		05DEAB132EFDE181008D0EE8 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 05DEAB122EFDE181008D0EE8 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05DEAB132EFDE181008D0EE8 /* Kingfisher in Frameworks */,
 				05DEAB092EFDB873008D0EE8 /* Resolver in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,6 +141,7 @@
 			name = PhotoGrid;
 			packageProductDependencies = (
 				05DEAB082EFDB873008D0EE8 /* Resolver */,
+				05DEAB122EFDE181008D0EE8 /* Kingfisher */,
 			);
 			productName = PhotoGrid;
 			productReference = 058A9CAB2EFC4DB600841C95 /* PhotoGrid.app */;
@@ -224,6 +227,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				058A9DAF2EFC5BF600841C95 /* XCRemoteSwiftPackageReference "Resolver" */,
+				05DEAB112EFDE0FA008D0EE8 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 058A9CAC2EFC4DB600841C95 /* Products */;
@@ -596,6 +600,14 @@
 				minimumVersion = 1.5.1;
 			};
 		};
+		05DEAB112EFDE0FA008D0EE8 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.6.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -603,6 +615,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 058A9DAF2EFC5BF600841C95 /* XCRemoteSwiftPackageReference "Resolver" */;
 			productName = Resolver;
+		};
+		05DEAB122EFDE181008D0EE8 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 05DEAB112EFDE0FA008D0EE8 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -7,7 +7,7 @@
 import Resolver
 
 protocol PhotoFeedInteractorProtocol {
-    func fetchPhotos() async throws -> [PhotoFeedEntity]
+    func fetchPhotos(page: Int, limit: Int) async throws -> [PhotoFeedEntity]
 }
  
 struct PhotoFeedInteractor: PhotoFeedInteractorProtocol {
@@ -16,7 +16,7 @@ struct PhotoFeedInteractor: PhotoFeedInteractorProtocol {
     // Can have other use cases added in the future (e.g., like, favorite, share)
     @Injected private var fetchPhotosUseCase: FetchPhotosUseCaseProtocol
     
-    func fetchPhotos() async throws -> [PhotoFeedEntity] {
-        try await fetchPhotosUseCase.execute()
+    func fetchPhotos(page: Int, limit: Int) async throws -> [PhotoFeedEntity] {
+        try await fetchPhotosUseCase.execute(page: page, limit: limit)
     }
 }

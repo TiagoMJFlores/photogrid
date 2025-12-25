@@ -12,20 +12,14 @@ struct PhotoFeedView: View {
     
     @StateObject private var viewModel = Resolver.resolve(PhotoFeedViewModel.self)
 
-    init() {
-    /*
-        let service = PhotoService()
-        let repository = PhotoRepository(service: service)
-        let useCase = FetchPhotosUseCase(repository: repository)
-        let interactor = PhotoFeedInteractor(fetchPhotosUseCase: useCase)
-        _viewModel = StateObject(wrappedValue: PhotoFeedViewModel(photoInteractorGrid: interactor))
-     */
-    }
-    
     var body: some View {
         NavigationSplitView {
             VStack {
-                PhotoFeedGrid(viewModel: viewModel)
+                PhotoFeedGrid(viewModel: viewModel) { photo in
+                    Task {
+                        await viewModel.loadNextPageIfNeeded(currentItem: photo)
+                    }
+                }
                 if viewModel.isLoading {
                     ProgressView()
                 } else if let error = viewModel.errorMessage {
