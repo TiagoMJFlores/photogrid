@@ -20,5 +20,9 @@ extension Resolver {
         register { PhotoFeedInteractor() as PhotoFeedInteractorProtocol}
 
         register { PhotoFeedViewModel()  }
+        
+        register { ThumbnailURLFactory() as ThumbnailURLFactoryProtocol}
+        
     }
+    
 }

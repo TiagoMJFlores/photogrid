@@ -21,16 +21,7 @@ struct PhotoService: PhotoServiceProtocol {
         
         let (data, _) = try await URLSession.shared.data(from: url)
         let apiPhotos = try JSONDecoder().decode([PhotoAPIModel].self, from: data)
-        
-        return apiPhotos.map { api in
-            PhotoFeedEntity(
-                id: api.id,
-                author: api.author,
-                width: api.width,
-                height: api.height,
-                downloadURL: api.download_url
-            )
-        }
+        return apiPhotos.toFeedEntityList()
     }
 }
 

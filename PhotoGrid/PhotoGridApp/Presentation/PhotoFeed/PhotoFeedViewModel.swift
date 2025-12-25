@@ -15,8 +15,8 @@ final class PhotoFeedViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var errorMessage: String? = nil
     
-    private let thumbnailBaseURL = "https://picsum.photos/id/"
     @Injected private var photoInteractorGrid: PhotoFeedInteractorProtocol
+    @Injected private var thumbnailURLFactory: ThumbnailURLFactoryProtocol
     
     @MainActor
     func loadPhotos() async {
@@ -25,14 +25,7 @@ final class PhotoFeedViewModel: ObservableObject {
         
         do {
             let models = try await photoInteractorGrid.fetchPhotos()
-            photos = models.map { model in
-                PhotoViewData(
-                    id: model.id,
-                    author: model.author,
-                    thumbnailURL: "\(thumbnailBaseURL)\(model.id)/300/300",
-                    displaySize: CGSize(width: 150, height: 150)
-                )
-            }
+            photos = models.toViewDataList(thumbnailURLFactory: thumbnailURLFactory)
         } catch {
             errorMessage = error.localizedDescription
         }

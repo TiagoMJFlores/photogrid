@@ -11,5 +11,6 @@ struct PhotoViewData: Identifiable, Hashable {
     let id: String
     let author: String
     let thumbnailURL: String
+    let downloadURL: String
     let displaySize: CGSize
 }
