@@ -19,6 +19,7 @@ struct PhotoCell: View {
             .placeholder {
                 ProgressView()
             }
+            .fade(duration: 0.3) 
             .resizable()
             .scaledToFit()
             .cornerRadius(10)

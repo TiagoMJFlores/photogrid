@@ -16,7 +16,8 @@ struct PhotoFeedDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
-                KFImage(URL(string: photo.thumbnailURL))
+                KFImage(URL(string: photo.downloadURL))
+                    .fade(duration: 0.3)
                     .resizable()
                     .scaledToFit()
                     .frame(maxWidth: .infinity)
