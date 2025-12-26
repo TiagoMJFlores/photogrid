@@ -13,6 +13,14 @@ struct PhotoFeedDetailView: View {
     
     let photo: PhotoViewData
     
+    enum Constants {
+        static let navigationTitle = "Photo Detail"
+        static let author = "Author:"
+        static let id = "ID:"
+        static let size = "SIZE:"
+        static let url = "URL:"
+    }
+    
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
@@ -24,7 +32,7 @@ struct PhotoFeedDetailView: View {
                 
                 VStack(alignment: .leading, spacing: 12) {
                     HStack {
-                        Text("Author:")
+                        Text(Constants.author)
                             .font(.body)
                             .fontWeight(.semibold)
                         Text(photo.author)
@@ -32,7 +40,7 @@ struct PhotoFeedDetailView: View {
                     }
                     
                     HStack {
-                        Text("ID:")
+                        Text(Constants.id)
                             .font(.body)
                             .fontWeight(.semibold)
                         Text(photo.id)
@@ -40,15 +48,15 @@ struct PhotoFeedDetailView: View {
                     }
                     
                     HStack(alignment: .top) {
-                        Text("Size:")
+                        Text(Constants.size)
                             .font(.body)
                             .fontWeight(.semibold)
-                        Text("\(photo.width)X\(photo.height)")
+                        Text(photo.sizeDisplay)
                             .font(.body)
                     }
                     
                     HStack(alignment: .top) {
-                        Text("URL:")
+                        Text(Constants.url)
                             .font(.body)
                             .fontWeight(.semibold)
                         Text(photo.author)
@@ -62,7 +70,7 @@ struct PhotoFeedDetailView: View {
             }
             .padding(.top, 0)
         }
-        .navigationTitle("Photo Detail")
+        .navigationTitle(Constants.navigationTitle)
         .navigationBarTitleDisplayMode(.large)
     }
 }

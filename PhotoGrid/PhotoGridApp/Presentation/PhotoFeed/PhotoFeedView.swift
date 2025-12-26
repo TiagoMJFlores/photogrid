@@ -12,6 +12,11 @@ struct PhotoFeedView: View {
     
     @StateObject private var viewModel = Resolver.resolve(PhotoFeedViewModel.self)
 
+    enum Constants {
+        static let navigationTitle = "Photos"
+        static let emptyText = "Select a photo"
+    }
+    
     var body: some View {
         NavigationSplitView {
             VStack {
@@ -29,7 +34,7 @@ struct PhotoFeedView: View {
                     
                 }
             }
-            .navigationTitle("Fotos")
+            .navigationTitle(Constants.navigationTitle)
             .navigationDestination(for: PhotoViewData.self) { photo in
                 PhotoFeedDetailView(photo: photo)
                        .onAppear {
@@ -42,7 +47,7 @@ struct PhotoFeedView: View {
             if let photo = viewModel.selectedPhoto {
                 PhotoFeedDetailView(photo: photo)
             } else {
-                Text("Select a photo")
+                Text(Constants.emptyText)
             }
         }
     }
